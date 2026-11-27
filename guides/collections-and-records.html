@@ -1,0 +1,3588 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Research data management — schemas, records, files, and workflows.">
+      
+      
+      
+        <link rel="canonical" href="https://civexdata.github.io/civex-docs/guides/collections-and-records.html">
+      
+      
+        <link rel="prev" href="schemas-and-fields.html">
+      
+      
+        <link rel="next" href="views.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Collections & records - Civex</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/concepts.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#collections-records" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Civex" class="md-header__button md-logo" aria-label="Civex" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Civex
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Collections & records
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/install.html" class="md-tabs__link">
+          
+  
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../how-to/import-data.html" class="md-tabs__link">
+          
+  
+  
+  How-to
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="schemas-and-fields.html" class="md-tabs__link">
+          
+  
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../extending/writing-a-plugin.html" class="md-tabs__link">
+          
+  
+  
+  Extending
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/http-api.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Civex" class="md-nav__button md-logo" aria-label="Civex" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Civex
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/first-project.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your first project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/concepts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schemas, collections, records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/tour.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Five-minute tour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-to
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How-to
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/import-data.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Import files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/fill-fields-from-filenames.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fill fields from file names
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/storage-drives.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Put files on another drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/export-files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get files out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/set-up-sync.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sync a project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/undo-mistakes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Undo a mistake
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/back-up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Back up a project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/cite-data.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cite the data in a paper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schemas-and-fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schemas & fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections & records
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="collections-and-records.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections & records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding records
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finding records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Charts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking the data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing records
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-many-records-at-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing many records at once
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-records-to-another-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving records to another collection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes on records
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes on records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signing-off-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signing off records
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-and-undoing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting and undoing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-a-projects-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying a project's data
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="views.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Saved filters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deleting-and-restoring.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deleting & restoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="releases.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Files
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="storage.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage volumes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Automation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="workflows.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runs & automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running civex
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Running civex
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="server-and-web-ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server & web UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hosting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hosting civex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sync.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syncing between machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="logging-and-telemetry.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging & telemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extending
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Extending
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extending/writing-a-plugin.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing a plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extending/container-plugins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extending/wire-protocol.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wire protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extending/sdk-reference.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SDK reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/http-api.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CLI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/top-level.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Top-level commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/ai.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex ai
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/auth.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex auth
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/bundle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex bundle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/collection.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/dashboard.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/db.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex db
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/history.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex history
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/logs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex logs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/plugin.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/policy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/record.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex record
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/retention.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex retention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/schema.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/store.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex store
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/sync.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/trash.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex trash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/view.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex view
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/workflow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    civex workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/plugins/files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/plugins/table.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/plugins/value_from_filename.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Value from the file name
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/plugins/save_records.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Save as records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/plugins/set_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set fields on this record
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding records
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finding records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Charts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking the data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing records
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-many-records-at-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing many records at once
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-records-to-another-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving records to another collection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes on records
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes on records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signing-off-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signing off records
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-and-undoing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting and undoing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-a-projects-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying a project's data
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="collections-records">Collections &amp; records</h1>
+<p>A <strong>collection</strong> is the binder: it holds records of any
+<a href="schemas-and-fields.html">schema</a>, one collection per study or season, as suits
+you, and says who may link to them. A <strong>record</strong> is one filled-in form of a schema: this
+site, this sample. If the two blur together, read
+<a href="../getting-started/concepts.html">Schemas, collections and records</a>.</p>
+<h2 id="collections">Collections</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>civex<span class="w"> </span>collection<span class="w"> </span>create<span class="w"> </span>survey-2024<span class="w"> </span>--description<span class="w"> </span><span class="s2">&quot;2024 field season&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--timezone<span class="w"> </span>Europe/London
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>civex<span class="w"> </span>collection<span class="w"> </span>show<span class="w"> </span>survey-2024
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>survey-2024
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  Records  0
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  2024 field season
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Timezone  Europe/London
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  Scope     local
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scope</strong> (<code>--scope</code>)</td>
+<td><code>local</code> (default): only records here can link to these. <code>global</code>: any collection can, for shared lists such as species, instruments or people</td>
+</tr>
+<tr>
+<td><strong>Timezone</strong> (<code>--timezone</code>)</td>
+<td>How times without a UTC offset are read and shown. See <a href="schemas-and-fields.html#times-and-timezones">Times and timezones</a></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>civex<span class="w"> </span>collection<span class="w"> </span>create<span class="w"> </span>taxonomy<span class="w"> </span>--scope<span class="w"> </span>global
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>civex<span class="w"> </span>collection<span class="w"> </span>list
+</code></pre></div>
+<p>A <code>reference</code> field links to records in its own collection or in a global one,
+never in another local collection. A global collection that others link to can't
+be made local or deleted.</p>
+<p>Every collection holds records of every schema, including one made after the
+collection: there is no list of schemas on a collection to keep up to date.</p>
+<p><strong>In the app:</strong> <strong>Collections → New collection</strong>, and <strong>Edit</strong> on a collection's
+page.</p>
+<h2 id="adding-records">Adding records</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Web UI</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In a collection, the <strong>New</strong> menu lists the schemas you can add here
+(<strong>New ▸ New site</strong>). Inside a record, it lists the types that go inside it
+(inside a visit: <strong>New ▸ New sample</strong>). This is the step you repeat; the
+schema is made once. <strong>Add and add another</strong> saves
+and gives you a blank form. A folder of files comes in through a workflow:
+see <a href="../how-to/import-data.html">Import files</a>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>civex<span class="w"> </span>record<span class="w"> </span>add<span class="w"> </span>--to<span class="w"> </span>survey-2024<span class="w"> </span>--schema<span class="w"> </span>sample
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>  Parent record ID (visit): 2d69dc46
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  number (integer) []: 3
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  depth (float) []: 12.5
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  taken_at (datetime) []:
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  photo (file) []: /data/IMG_0412.jpg
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  reading (file) []:
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Added record f623c8d7-eb75-41e1-b2ec-d6feb7f02f7a.
+</code></pre></div>
+<p>For a type that goes inside another it asks for the parent record first. A
+file field takes a path, and a reference takes a record id or any unique
+prefix of one.</p>
+</div>
+</div>
+</div>
+<h2 id="finding-records">Finding records</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>civex<span class="w"> </span>record<span class="w"> </span>find<span class="w"> </span>--in<span class="w"> </span>survey-2024<span class="w"> </span>--schema<span class="w"> </span>sample<span class="w"> </span>--where<span class="w"> </span><span class="s2">&quot;number=3&quot;</span><span class="w"> </span>--limit<span class="w"> </span><span class="m">20</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>civex<span class="w"> </span>record<span class="w"> </span>show<span class="w"> </span>f623
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Record f623c8d7-eb75-41e1-b2ec-d6feb7f02f7a
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  Schema    sample
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  Parent    2d69dc46 (visit)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  Created   2026-10-09 11:11 UTC
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Field     Value
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>number    3
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>depth     12.5
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>photo     IMG_0412.jpg
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>name      North Ridge  (↑ site)
+</code></pre></div>
+<p><code>--where</code> repeats, and all conditions must match. Every record has a UUID, and
+any unique prefix of it works wherever an id is asked for.</p>
+<h3 id="the-explorer">The explorer</h3>
+<p>A collection's page is its records, in one explorer. A record's page says
+what kind of thing it is above its name, shows its fields (the first few,
+with <strong>Show all</strong>, when it has records inside it) and then what it
+<strong>Contains</strong>: a chip for each kind inside with its count, a search, and the
+rows, each a link to that record. It is the same explorer with some of it
+folded: <strong>Filter</strong> beside the search opens the filters, saved filters,
+columns and export, and <strong>Charts</strong> opens the charts. Rows are ticked there
+as anywhere, to edit, run a workflow on, move or delete. Files, Exports, Activity and
+the collection's details are in the <strong>⋯</strong> menu at the top of the page.</p>
+<p>The explorer has three ideas. <strong>Records</strong> are the rows: each row is one
+record. <strong>Filters</strong> say which rows you see. <strong>Charts</strong> count the rows you see.</p>
+<ul>
+<li><strong>Levels:</strong> the collection's schemas top-down (Site → Visit → Sample),
+  with counts. A row shows its children ("3 visits →"). Click to go down, and
+  use the trail to go back up.</li>
+<li><strong>All kinds</strong>, the first of the levels, lists every kind of record at once
+  (in the collection, in every collection on <strong>All records</strong>, or inside the
+  record you are in), with its name, kind, collection and when it was last
+  edited. It can be searched, filtered by open notes, sorted by those columns,
+  moved and deleted; filtering by a field, charts, <strong>Edit…</strong> and <strong>Run
+  workflow</strong> need one kind, so pick one first.</li>
+<li><strong>Search</strong> is scoped to where you are. It looks, ignoring case, in what the
+  records hold: text, numbers, the items of a list (tags, choices) and the
+  names of files. It never matches a file's hash, a reference or a location,
+  so a short search like <code>a3</code> finds only records that show <code>a3</code>. Typing the
+  start of a record's id (four characters or more) finds that record too.
+  A link or script can narrow it to one field (<code>qin</code> in the address,
+  <code>search_field</code> on the API).</li>
+<li><strong>+ Filter</strong> builds AND/OR conditions on this level's fields, a parent's, or
+  any child's: "Visits that have a Sample whose <code>depth</code> is empty" is one
+  condition. Reference values are picked by name.</li>
+<li><strong>Saved filters</strong> keep a filter to come back to: see
+  <a href="views.html">Saved filters</a>. <strong>Save this filter</strong> saves yours, and everyone
+  sees it.</li>
+<li><strong>Columns</strong>, beside the count of records, include parents' fields and
+  fields through a reference. Your choice for a kind is remembered in this
+  browser. Click a header to sort.</li>
+<li><strong>Export</strong> takes exactly the rows listed or ticked. See
+  <a href="../how-to/export-files.html">Get files out</a>. It also offers the charts on
+  screen, one or all of them, as tables of their numbers.</li>
+<li>The files of what's listed (to move between drives, download or free up)
+  are under <strong>Files</strong> in the page's <strong>⋯</strong> menu. See
+  <a href="files.html#working-on-many-files">Files</a>.</li>
+<li><strong>Charts</strong> sit beside the records and count exactly what is listed: see
+  <a href="#charts">Charts</a>.</li>
+<li>Under the table, a last row gives, for every record listed (not just the
+  page), the average, smallest and largest of each number column and how many
+  different values each choice column holds.</li>
+<li>A count such as <strong>3 problems</strong> beside the number of records appears only
+  when something needs a look: see <a href="#checking-the-data">Checking the data</a>.</li>
+<li>Tick rows (shift-click for a range) to <strong>Delete</strong> or <strong>Run workflow on N</strong>.
+  Ticking a whole page offers <strong>Select all N matching</strong>.</li>
+</ul>
+<p>Everything is in the address, so a filtered list can be bookmarked and Back
+undoes a step. Scripts get the same from <code>GET /api/records</code> with <code>schema</code>,
+<code>within</code>, <code>filter</code>, <code>sort</code>, <code>search</code> and <code>search_field</code> (repeatable: the fields
+to search in), and from <code>civex record find --in &lt;collection&gt; --schema &lt;kind&gt;
+--search &lt;text&gt; [--search-field &lt;field&gt;]</code>.</p>
+<p>A record's <strong>Referenced by</strong> section counts the records linking to it, per
+collection, schema and field (<code>GET /api/records/{id}/referrers</code>).</p>
+<h3 id="charts">Charts</h3>
+<p>Charts are a panel beside the records. Like the navigation on the left, it
+folds away with the button at its top and opens again from the <strong>Charts</strong>
+button it leaves; another button shows the charts at full width, with <strong>Back to
+records</strong>. Drag the line between the records and the charts to make the panel
+wider (the cards then sit in two columns). These choices are remembered in
+this browser. Every chart counts
+exactly the records listed: the same kind, place, search and filters. There
+are no charts until someone adds one.</p>
+<ul>
+<li><strong>Click a bar</strong> (or a point, or a slice) to filter by its value. The table
+  and the other charts follow, a chip appears above, and clicking it again
+  takes it out. <strong>Clear filters</strong> beside the chips removes them all.
+  Several bars of one chart are "is any of". The chart you clicked keeps all
+  its bars, with the chosen ones lit, so you can pick another.</li>
+<li>A filter made from bars is the ordinary filter: it can be changed with
+  <strong>+ Filter</strong>, saved with <strong>Save this filter</strong>, and shared as a link. When a
+  filter uses a chart's field in a way bars can't show (inside an "or" with
+  another field, or "is not"), the chart counts the filtered records with
+  nothing lit.</li>
+<li><strong>Which charts.</strong> A kind of record says which charts its lists open with
+  (also on its <strong>Charts</strong> tab on the schema page). A kind starts with none.</li>
+<li><strong>Add chart</strong> opens the builder at full width: the choices on the left and
+  the chart they make on the right, drawn live. First <strong>What</strong>: what to
+  <strong>Show</strong> (how many records, or the average, total, smallest or largest of
+  a number, how many have a field filled in, or how many records of a kind
+  beneath are inside them) <strong>For each</strong> value of a field (a date by year,
+  month, week or day; a number in steps you choose; a location places the
+  records). Then <strong>How</strong> it is drawn, from the ways that fit: <strong>Bars</strong>,
+  <strong>Line</strong> (over dates or steps), <strong>Pie</strong> (of counts and totals), <strong>Table</strong>,
+  or <strong>Map</strong> (for a location). <strong>Quick picks</strong> fill the choices in for the
+  kind's fields of choices and its first date. Give it a title of your own
+  if you like, then <strong>Add chart</strong>.</li>
+<li>Drag a chart by its title to move it. Its <strong>⋮</strong> menu has <strong>Edit…</strong> (the
+  builder again, on that chart, where you can also give it a title of your
+  own), <strong>Larger</strong> / <strong>Smaller</strong>, <strong>See numbers</strong> (the chart above the
+  records with its table of numbers and <strong>Download numbers</strong>: CSV, Excel,
+  TSV, JSON; it is in the address, so it is a link and Back closes it),
+  <strong>Move up</strong> / <strong>Move down</strong> and <strong>Remove</strong>. Every change is saved for the
+  kind at once, for everyone, like a saved filter (it takes the right to
+  write records).</li>
+<li><strong>Add to Analytics page</strong>, in a chart's menu, puts it on the
+  <a href="views.html#the-analytics-page">Analytics page</a> with the records it counts now.</li>
+<li>A very large list (over 200,000 records) waits for <strong>Show charts</strong>.</li>
+</ul>
+<p>How values are grouped: a date is kept at the precision it was written, so by
+month a sample dated only <code>2019</code> is its own bar, <strong>2019, month not known</strong>. A
+date and time is grouped in its field's time zone, else the collection's,
+else UTC. A list (tags, links) puts a record in a bar for each item. There is
+no median.</p>
+<p>A <strong>map</strong> chart shows the listed records by a location field of their kind or
+of a kind above it (each record is drawn where that record is). Points that
+crowd together are one circle with a number; click a record for its name and
+a link to its page. Opened large it is the full map, and with several
+location fields one can be picked. It shows the first 10,000 and says so.
+The base map is the location editor's: coastlines that work offline, plus
+street detail when a tile address is set in <strong>Settings → Map</strong>. Narrowing the
+records by drawing an area is not possible yet.</p>
+<p>Scripts get the same numbers from <code>POST /api/records/summary</code> (the list's
+selectors plus <code>group_by</code> and <code>measures</code>, e.g. <code>site</code>, <code>taken:month</code>,
+<code>depth:5</code>; <code>count</code>, <code>mean:depth</code>, <code>inside:reading</code>; <code>?format=csv</code> for a file)
+and from <code>civex record summarise --in &lt;collection&gt; -s &lt;kind&gt; --by
+&lt;field&gt;[:month|:5] -m count -m mean:&lt;field&gt; [--csv]</code>; a map's points from
+<code>POST /api/records/points</code>. Which of these each field type allows is in
+<code>GET /api/schemas/field-types</code>.</p>
+<h3 id="checking-the-data">Checking the data</h3>
+<p>Beside the number of records, a count such as <strong>3 problems</strong> appears when
+something in exactly the records listed (the same level, filters and search)
+needs a look. Nothing is shown when all is well. Click it for the list, counted
+per field; <strong>Back to records</strong> returns. For a list of more than 5,000 records
+the count is not worked out by itself, since that reads every record: open
+<code>?show=checks</code> or use the command below.</p>
+<ul>
+<li><strong>Breaks a rule</strong>: a value its field's rules refuse now. Rules are checked
+  when a value is saved, so tightening one later (a lower maximum, fewer
+  choices, a finer date precision) leaves the values already stored as they
+  were. Such a record can still be edited (a save checks only the values it
+  changes), and its broken values can be put right one at a time, by hand or
+  with a bulk edit.</li>
+<li><strong>Required but empty</strong>: a field marked required with no value.</li>
+<li><strong>Shares a unique key</strong>: records in one place with the same values for
+  fields that should be unique together.</li>
+<li><strong>Broken link</strong>: a link to a record that was deleted, or that the record can
+  no longer reach.</li>
+<li><strong>Missing file</strong>: a file that is on no drive here and not on the server.</li>
+</ul>
+<p>Each line gives the count and a few of the records. Click it to list them all:
+open one, or tick them and choose <strong>Edit…</strong> to put them right in one go (see
+<a href="#changing-many-records-at-once">Changing many records at once</a>). A required
+field left empty has <strong>Show in the list</strong>, which adds the condition to the
+explorer's filter. Unusual numbers are not looked for.</p>
+<p>From the command line, with the same options as <code>record find</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>civex<span class="w"> </span>record<span class="w"> </span>check<span class="w"> </span>--in<span class="w"> </span>survey<span class="w"> </span>-s<span class="w"> </span>sample<span class="w">                       </span><span class="c1"># one line per field and issue</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>civex<span class="w"> </span>record<span class="w"> </span>check<span class="w"> </span>--in<span class="w"> </span>survey<span class="w"> </span>--issue<span class="w"> </span>breaks_rule<span class="w"> </span>--field<span class="w"> </span>depth<span class="w">   </span><span class="c1"># the records, with their ids</span>
+</code></pre></div>
+<p>Scripts use <code>POST /api/records/quality</code> (the list's selectors) and
+<code>POST /api/records/quality/records</code> (<code>issue</code>, <code>field</code>, <code>kind</code>, <code>limit</code>,
+<code>offset</code>).</p>
+<h2 id="changing-records">Changing records</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>civex<span class="w"> </span>record<span class="w"> </span>update<span class="w"> </span>f623<span class="w">        </span><span class="c1"># asks for each field, current value as default</span>
+</code></pre></div>
+<p>In the app, edit on the record's page. With a file attached, text, number and
+date fields have <strong>from filename</strong> to fill them from the file's name.</p>
+<h3 id="changing-many-records-at-once">Changing many records at once</h3>
+<p>To set a field to the same value on many records (mark a batch as checked,
+fill in the site for a day's uploads), tick them in the explorer, or tick a
+whole page and choose <strong>Select all N matching</strong>, then choose <strong>Edit…</strong>. Pick
+the field (and <strong>Another field</strong> for more), enter the value with the field's
+usual input, or choose <strong>Clear</strong> to empty it. Before you confirm, the dialog
+says how many records would change, how many already have the value, which
+can't take it and why, and how many workflow runs the change would start.
+From the command line:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>civex<span class="w"> </span>record<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">status</span><span class="o">=</span>checked<span class="w"> </span>--id<span class="w"> </span>f623<span class="w"> </span>--id<span class="w"> </span>a91c<span class="w">            </span><span class="c1"># these records</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>civex<span class="w"> </span>record<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">status</span><span class="o">=</span>checked<span class="w"> </span>--in<span class="w"> </span>survey<span class="w"> </span>-s<span class="w"> </span>sample<span class="w"> </span>-w<span class="w"> </span><span class="nv">status</span><span class="o">=</span>new<span class="w">   </span><span class="c1"># all a list shows</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>civex<span class="w"> </span>record<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">notes</span><span class="o">=</span><span class="w"> </span>--in<span class="w"> </span>survey<span class="w"> </span>-s<span class="w"> </span>sample<span class="w"> </span>--dry-run<span class="w">         </span><span class="c1"># clear; say what would happen</span>
+</code></pre></div>
+<p>Each value is read as its field's type. A record takes every change or none:
+one that can't (a value outside the field's limits, a uniqueness key another
+record already uses, a field its kind doesn't have) is left as it is and named,
+and the others are changed. Only a kind's own fields are offered: a field it
+inherits holds its value on the record above, so edit that kind instead. Files
+are added one record at a time. Each record's history shows the change, and
+the whole edit is one event in Activity, where <strong>Undo</strong> puts it all back
+(see <a href="../how-to/undo-mistakes.html#undo-a-bulk-edit">Undo a mistake</a>).</p>
+<p>A big edit runs in the background: the bar at the bottom of the page shows
+how many records it has changed of how many, and you can go on working (other
+saves are let in while it runs). <strong>Stop</strong> ends it where it is: the records
+changed so far stay changed, and making the same edit again finishes it (or
+<strong>Undo</strong> in Activity puts back what was changed).</p>
+<h3 id="moving-records-to-another-collection">Moving records to another collection</h3>
+<p>A record can be moved to another collection, or inside another record there.
+It keeps its id, its values and its history, and takes everything beneath it
+along; its files stay where they are stored. In the app, tick the records in
+the explorer and choose <strong>Move to…</strong>; the dialog says how many records would
+go, with everything inside them, and whether anything is in the way, before
+you confirm. From the command line:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>civex<span class="w"> </span>record<span class="w"> </span>move<span class="w"> </span>f623<span class="w"> </span>a91c<span class="w"> </span>--to<span class="w"> </span>archive<span class="w">              </span><span class="c1"># to the top of `archive`</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>civex<span class="w"> </span>record<span class="w"> </span>move<span class="w"> </span>f623<span class="w"> </span>--to<span class="w"> </span>archive<span class="w"> </span>--under<span class="w"> </span>7b2e<span class="w">      </span><span class="c1"># inside a record there</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>civex<span class="w"> </span>record<span class="w"> </span>move<span class="w"> </span>f623<span class="w"> </span>--to<span class="w"> </span>archive<span class="w"> </span>--dry-run<span class="w">         </span><span class="c1"># say what would happen</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>civex<span class="w"> </span>record<span class="w"> </span>move-all<span class="w"> </span>survey<span class="w"> </span>--schema<span class="w"> </span>visit<span class="w"> </span>--to<span class="w"> </span>archive<span class="w">       </span><span class="c1"># every visit in `survey`</span>
+</code></pre></div>
+<p>A move is refused whole, and the dialog or the command says why, when a record
+elsewhere references one being moved (a record may only reference its own
+collection's records or a global collection's), a uniqueness key is already
+taken where the records would land, or the kind of record can't sit where it
+would go. The move is one event in Activity, and a record's history reads it
+as a change of collection.</p>
+<h2 id="notes-on-records">Notes on records</h2>
+<p>A note is a short text about a record, "value looks off, re-check the
+calibration". The record's <strong>Notes</strong> tab lists its notes as threads: each note
+with the replies to it underneath, oldest first, with who wrote them and when.
+Anyone who may change records in the collection can add a note, <strong>Reply</strong> in a
+thread, <strong>Resolve</strong> a thread once it is dealt with (or <strong>Reopen</strong> it), and
+delete a note or a reply; only its author can change its words. Replying to a
+resolved thread opens it again. Deleting the note that starts a thread hides
+its replies too, and restoring it brings them back.</p>
+<p>The record's header says how many threads are still open, and links to its
+Notes tab. Beside the number of records, any list says <strong>N open notes</strong> when some of
+the records listed have one; click it to list them. <strong>All open notes</strong> on a
+record's Notes tab lists every record with an open
+thread, of every kind, in every collection: it is the <strong>All records</strong> tab of
+Collections with <strong>All kinds</strong> picked, filtered with <strong>Has open notes</strong>, so
+search and the Open notes filter work on it, and a record opens on its Notes
+tab. Pick a kind to filter by its fields too. <strong>Open notes inside</strong> on a
+record's Notes tab lists the same for everything inside that record. The <strong>Open notes</strong> column
+(<strong>Columns › Open notes</strong>) shows how many threads are open and the first line
+of the latest, in any list.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>civex<span class="w"> </span>record<span class="w"> </span>note<span class="w"> </span>add<span class="w"> </span>f623<span class="w"> </span><span class="s2">&quot;depth looks off, re-check the calibration&quot;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>civex<span class="w"> </span>record<span class="w"> </span>note<span class="w"> </span>reply<span class="w"> </span>3c1d<span class="w"> </span><span class="s2">&quot;it was the sensor, swapped on the 3rd&quot;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>civex<span class="w"> </span>record<span class="w"> </span>note<span class="w"> </span>list<span class="w"> </span>f623<span class="w"> </span>--open
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>civex<span class="w"> </span>record<span class="w"> </span>note<span class="w"> </span>resolve<span class="w"> </span>3c1d
+</code></pre></div>
+<p>Notes are in history and sync to the other computers following the project;
+two people replying at once are just two replies. Deleting a record hides its
+notes until it is restored; deleting it permanently removes them, history and
+all. Scripts use <code>/api/records/{id}/notes</code> and <code>/api/notes/{id}/replies</code>.</p>
+<h3 id="signing-off-records">Signing off records</h3>
+<p>To mark records as checked, or to track a QC state ("pending", "passed",
+"failed"), add a field for it: a <strong>Choice</strong> field such as <code>qc</code> with those
+choices, or a <strong>Yes / no</strong> field <code>checked</code>. Set it on many records at once with
+<strong>Edit…</strong> on the explorer's selection bar (bulk edit), and find what is waiting
+with the explorer's filter (<strong>qc is pending</strong>). Being a field, it is in each
+record's history, syncs, exports, and can start a workflow.</p>
+<h2 id="deleting-and-undoing">Deleting and undoing</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>civex<span class="w"> </span>record<span class="w"> </span>delete<span class="w"> </span>f623<span class="w">        </span><span class="c1"># with its children, to Recently Deleted</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>civex<span class="w"> </span>record<span class="w"> </span>restore<span class="w"> </span>f623
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>civex<span class="w"> </span>record<span class="w"> </span>delete-all<span class="w"> </span>survey-2024<span class="w"> </span>--schema<span class="w"> </span>sample
+</code></pre></div>
+<p>A record linked from another record's <code>reference</code> field can't be deleted without
+<code>--force</code>, which clears those links.</p>
+<p>Every change is in history: a record's <strong>History</strong> tab, a collection's
+<strong>Activity</strong> tab, and <strong>Activity</strong> in the sidebar for the whole project. Each
+line says who, what and when, and a bulk operation is one line. Any entry on a
+record can be reverted:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>civex<span class="w"> </span><span class="nb">history</span><span class="w"> </span>record<span class="w"> </span>f623
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>civex<span class="w"> </span><span class="nb">history</span><span class="w"> </span>revert<span class="w"> </span>&lt;entry<span class="w"> </span>id&gt;
+</code></pre></div>
+<p>See <a href="../how-to/undo-mistakes.html">Undo a mistake</a> and
+<a href="deleting-and-restoring.html">Deleting &amp; restoring data</a>.</p>
+<h2 id="copying-a-projects-data">Copying a project's data</h2>
+<p><code>civex bundle export</code> writes schemas, collections, records (their ids kept),
+the files they cite and the project's workflows to one file, and <code>civex bundle
+import</code> reads it into another project; in the app, <strong>Copy to another project…</strong> and
+<strong>Bring in from another project…</strong> on the Collections page. It leaves out history and
+settings. See <a href="../how-to/back-up.html">Back up a project</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
